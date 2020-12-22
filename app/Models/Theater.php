@@ -18,6 +18,6 @@ class Theater extends Model
         'description_theater'
     ];
     public function movies(){
-        return $this->belongsToMany('App\Models\Movie','tb_movies_theaters','theater','movie');
+        return $this->belongsToMany('App\Models\Movie','tb_movies_theaters','theater','movie')->withPivot('from_date','to_date');
     }
 }
