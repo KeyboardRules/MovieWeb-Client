@@ -65,18 +65,18 @@
     </div>
     <!-- popular -->
     <div class="Latest-tv-series">
-		<h4 class="latest-text w3_latest_text w3_home_popular">Những bộ phim hay nhất</h4>
+		<h4 class="latest-text w3_latest_text w3_home_popular">10 bộ phim hay nhất</h4>
 		<div class="container">
 			<section class="slider">
 				<div class="flexslider">
 					<ul class="slides">
-                        @foreach(App\Models\Movie::all()->sortByDesc('score')->take(3) as $movie)
+                        @foreach(App\Models\Movie::all()->sortByDesc('score')->take(10) as $movie)
 						<li>
 							<div class="agile_tv_series_grid">
 								<div class="col-md-6 agile_tv_series_grid_left">
 									<div class="w3ls_market_video_grid1">
 										<img src="{{$movie->image_movie}}" alt=" " class="img-responsive" />
-										<a class="w3_play_icon" href="#small-dialog">
+										<a class="w3_play_icon" href="#small-dialog{{$movie->id_movie}}">
 											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 										</a>
 									</div>
@@ -84,13 +84,13 @@
 								<div class="col-md-6 agile_tv_series_grid_right">
 									<p class="fexi_header">{{$movie->name_movie}}</p>
 									<p class="fexi_header_para"><span class="conjuring_w3">Cốt truyện<label>:</label></span> {{$movie->content_movie}}</p>
-									<p class="fexi_header_para"><span>Ngày ra mắt<label>:</label></span> {{ Carbon\Carbon::parse($movie->date_movie)->format('M d Y')}} </p>
+									<p class="fexi_header_para"><span>Ngày ra mắt<label> :</label></span> {{ Carbon\Carbon::parse($movie->date_movie)->format('M d Y')}} </p>
 									<p class="fexi_header_para">
                                         <span>Thể loại<label>:</label> </span>
                                         @foreach($movie->categories as $category)
 										<a href="{{route('movies.category',$category->name_category)}}">{{$category->name_category}}</a> | 
-                                        @endforeach								
-									</p>
+                                        @endforeach							
+									</p>	
 									<p class="fexi_header_para fexi_header_para1"><span>Đánh giá<label>:</label></span>
                                         <i class="fa @if($movie->score()<1&&$movie->score()>0) fa-star-half-o @elseif($movie->score()>=1) fa-star @else fa-star-o @endif" aria-hidden="true"></i>
 										<i class="fa @if($movie->score()<2&&$movie->score()>1) fa-star-half-o @elseif($movie->score()>=2) fa-star @else fa-star-o @endif" aria-hidden="true"></i>
@@ -102,6 +102,9 @@
 								<div class="clearfix"> </div>
 							</div>
                         </li>
+						<div id="small-dialog{{$movie->id_movie}}" class="mfp-hide">
+		                    <iframe src="{{$movie->trailer_movie}}"></iframe>
+	                    </div>
                         @endforeach
 					</ul>
 				</div>
@@ -125,15 +128,6 @@
 	<!-- pop-up-box -->  
 		<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 	<!--//pop-up-box -->
-	<div id="small-dialog" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/164819130?title=0&byline=0"></iframe>
-	</div>
-	<div id="small-dialog1" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/148284736"></iframe>
-	</div>
-	<div id="small-dialog2" class="mfp-hide">
-		<iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
-	</div>
 	<script>
 		$(document).ready(function() {
 		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({

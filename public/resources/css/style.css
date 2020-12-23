@@ -245,6 +245,8 @@ p.fexi_header_para{
 	color:#fff;
 	line-height:1.5em;
 	position:relative;
+	min-height: 20px;
+	width: 100%;
 }
 p.fexi_header_para label{
 	position: absolute;
@@ -257,7 +259,8 @@ p.fexi_header_para span{
     font-size: 14px;
     font-weight: bold;
     float: left;
-    width:25%;
+	width:25%;
+	height: auto;
 }
 p.fexi_header_para a{
 	color:#fff;
