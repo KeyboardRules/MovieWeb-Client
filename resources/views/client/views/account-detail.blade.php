@@ -16,16 +16,16 @@
                 Thông tin người dùng
             </header>
             <div class="panel-body">
-            @if(session()->has('message'))
+            @if(session()->has('account_message'))
             <div class="{{ session()->get('class')}}" role="alert">
-                <strong>{{ session()->get('message')}}</strong>
+                <strong>{{ session()->get('account_message')}}</strong>
             </div>
             @endif
                 <div class="col-sm-5">
                     <section class="">
                         <div class="panel-body">
                             <div class="cover text-center" style="width:100%">
-                                <img style="max-width:100%;" width="auto" height="400" src="{{$user->image_user}}">
+                                <img style="max-width:100%;" width="auto" height="400" @if($user->image_user!=null) src="{{$user->image_user}}" @else src="{{asset('resources/images/avatar.png')}}" @endif">
                                 <p style="margin-top:5px;"><em>Ảnh đại diện</em></p>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                 </h5>
 								    <div class="media-left">
 									    <a href="{{route('account.detail',$review->user->id_user)}}">
-										    <img style="width: 40px;height: 40px;" src="{{$review->user->image_user}}" title="One movies" alt=" " />
+										    <img style="width: 40px;height: 40px;" @if($user->image_user!=null) src="{{$user->image_user}}" @else src="{{asset('resources/images/avatar.png')}}" @endif title="One movies" alt=" " />
 									    </a>
 								    </div>
 								    <div class="media-body">

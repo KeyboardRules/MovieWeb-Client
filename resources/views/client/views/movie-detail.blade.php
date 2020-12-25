@@ -29,7 +29,7 @@
 							<h1>{{$movie->name_movie}}</h1>	
 					    </div>
 						<div class="video-grid-single-page-agileits">	
-							<div data-video="{{$movie->trailer_movie}}" id="video"> <img src="{{$movie->image_movie}}" alt="" class="img-responsive" /> </div>
+							<div data-video="{{$movie->trailer_movie}}" id="video"> <img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif alt="" class="img-responsive" /> </div>
 						</div>
                     </div>
                     <div class="col-sm-12 wthree-top-news-left">
@@ -114,7 +114,7 @@
                                 </h5>
 								    <div class="media-left">
 									    <a href="{{route('account.detail',$review->user->id_user)}}">
-										    <img style="width: 40px;height: 40px;" src="{{$review->user->image_user}}" title="One movies" alt=" " />
+										    <img style="width: 40px;height: 40px;" @if($review->user->image_user!=null) src="{{$review->user->image_user}}" @else src="{{asset('resources/images/avatar.png')}}" @endif title="One movies" alt=" " />
 									    </a>
 								    </div>
 								    <div class="media-body">
@@ -181,7 +181,7 @@
                                 </h5>
 								    <div class="media-left">
 									    <a href="{{route('account.detail',$review->user->id_user)}}">
-										    <img style="width: 40px;height: 40px;" src="{{$review->user->image_user}}" title="One movies" alt=" " />
+										    <img style="width: 40px;height: 40px;" @if($review->user->image_user!=null) src="{{$review->user->image_user}}" @else src="{{asset('resources/images/avatar.png')}}" @endif title="One movies" alt=" " />
 									    </a>
 								    </div>
 								    <div class="media-body">
@@ -289,18 +289,18 @@
 			</div>
 				<!-- //movie-browse-agile -->
 				<!--body wrapper start-->
-<div class="agileinfo-news-top-grids">
-<div class="col-sm-12 wthree-top-news-left">
-<section class="panel">
+		<div class="agileinfo-news-top-grids">
+		<div class="col-sm-12 wthree-top-news-left">
+		<section class="panel">
             <header class="panel-heading">
-                Những rạp đang chiếu phim {{$movie->name_movie}}
+                Những rạp đã chiếu phim {{$movie->name_movie}}
             </header>
             <div class="w3_agile_banner_bottom_grid">
 				<div id="owl-demo" class="owl-carousel owl-theme">
                     @foreach($movie->theaters as $theater)
 					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="{{route('theater.detail',$theater->id_theater)}}" class="hvr-shutter-out-horizontal"><img src="{{$theater->image_theater}}" title="album-name" class="img-responsive" alt=" " />
+							<a href="{{route('theater.detail',$theater->id_theater)}}" class="hvr-shutter-out-horizontal"><img @if($theater->image_theater!=null) src="{{$theater->image_theater}}" @else src="{{asset('resources/images/theater.png')}}" @endif title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">

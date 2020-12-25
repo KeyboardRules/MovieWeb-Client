@@ -30,7 +30,7 @@
                             @endif
                             @foreach($movies as $movie)
                                 <div class="col-md-2 w3l-movie-gride-agile">
-									<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img src="{{$movie->image_movie}} " title="album-name" alt=" " />
+									<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif title="album-name" alt=" " />
 									<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 									</a>
 									  <div class="mid-1">

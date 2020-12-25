@@ -10,7 +10,7 @@
 <div id="slidey" style="display:none;">
 		<ul>
             @foreach(App\Models\Movie::inRandomOrder()->limit(6)->get() as $movie)
-			<li><img src="{{$movie->image_movie}}" alt=""><p class='title'>{{$movie->name_movie}}</p><p class='description'>{{$movie->content_movie}}</p></li>
+			<li><img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif alt=""><p class='title'>{{$movie->name_movie}}</p><p class='description'>{{$movie->content_movie}}</p></li>
             @endforeach
 		</ul>   	
     </div>
@@ -32,7 +32,7 @@
                 @foreach(App\Models\Movie::inRandomOrder()->limit(6)->get() as $movie)
 					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img src="{{$movie->image_movie}}" title="album-name" class="img-responsive" alt=" " />
+							<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif title="album-name" class="img-responsive" alt="" />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -75,7 +75,7 @@
 							<div class="agile_tv_series_grid">
 								<div class="col-md-6 agile_tv_series_grid_left">
 									<div class="w3ls_market_video_grid1">
-										<img src="{{$movie->image_movie}}" alt=" " class="img-responsive" />
+										<img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif alt=" " class="img-responsive" />
 										<a class="w3_play_icon" href="#small-dialog{{$movie->id_movie}}">
 											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
 										</a>

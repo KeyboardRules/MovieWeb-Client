@@ -33,7 +33,7 @@
                     <section class="">
                         <div class="panel-body">
                             <div class="cover text-center" style="width=100%">
-                                <img style="max-width:100%;" width="auto" height="400" src="{{$theater->image_theater}}" alt="image of theater">
+                                <img style="max-width:100%;" width="auto" height="400" @if($theater->image_theater!=null) src="{{$theater->image_theater}}" @else src="{{asset('resources/images/theater.png')}}" @endif alt="image of theater">
                                 <p style="margin-top:5px;"><em>Ảnh rạp</em></p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     @foreach($theater->movies->sortBy('score()')->take(10) as $movie)
 					<div class="item">
 						<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-							<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img src="{{$movie->image_movie}}" title="album-name" class="img-responsive" alt=" " />
+							<a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
@@ -123,11 +123,11 @@
 <div class="container">
     <div class="browse-inner">
     @if($movies->count()==0)
-        <h3 style="text-align:center;">Không có bộ phim nào thuộc thể loại này</h3>
+        <h3 style="text-align:center;">Rạp chưa chiếu phim nào</h3>
     @endif
     @foreach($movies as $movie)
         <div class="col-md-2 w3l-movie-gride-agile">
-            <a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img src="{{$movie->image_movie}} " title="album-name" alt=" " />
+            <a href="{{route('movie.detail',$movie->id_movie)}}" class="hvr-shutter-out-horizontal"><img @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif title="album-name" alt=" " />
             <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
             </a>
             <div class="mid-1">

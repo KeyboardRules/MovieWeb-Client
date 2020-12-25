@@ -44,7 +44,7 @@
                       @foreach($movies as $movie)
                       <tr>
                       <td>{{$i++}}</td>
-											<td class="w3-list-img"><a href="{{route('movie.detail',$movie->id_movie)}}"><img style="height:58px;" src="{{$movie->image_movie}}" alt="" /> <span>{{$movie->name_movie}}</span></a></td>
+											<td class="w3-list-img"><a href="{{route('movie.detail',$movie->id_movie)}}"><img style="height:58px;" @if($movie->image_movie!=null) src="{{$movie->image_movie}}" @else src="{{asset('resources/images/movie.jpg')}}" @endif alt="" /> <span>{{$movie->name_movie}}</span></a></td>
 											<td>{{ Carbon\Carbon::parse($movie->date_movie)->format('Y')}}</td>
 											<td>{{$movie->length_movie}} phút</td>
 											<td class="w3-list-info">
