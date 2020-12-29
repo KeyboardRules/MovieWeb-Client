@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('client\views\main');
 })->name('main');
+Route::view('/intro','/client/views/introduce');
 Route::group(['middleware'=>['auth.login']],function(){
     Route::get('/user/setting','App\Http\Controllers\AccountController@AccountSettingView')->name('account.setting');
     Route::post('/user/update','App\Http\Controllers\AccountController@AccountUpdate')->name('account.update');
