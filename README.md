@@ -10,4 +10,4 @@
 # Note
 - In xampp you have to create a server call:"ImageServer" with 3 sub folder:"Movies,Theaters,Users"
 
-- Get project :MovieWeb-Admin() and run migrate to get database;
+- Get project :MovieWeb-Admin(https://github.com/KeyboardRules/MovieWeb-Admin) and run migrate to get database;
