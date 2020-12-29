@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="agileits-single-top">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Trang chủ</a></li>
+					<li><a href="{{route('main')}}">Trang chủ</a></li>
 					<li class="active">Rạp phim</li>
 				</ol>
                 <div class="col-sm-12 wthree-top-news-left">

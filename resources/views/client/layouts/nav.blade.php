@@ -76,7 +76,7 @@
 								</ul>
 							</li>
 							<li><a href="{{route('movies')}}">Danh sách phim</a></li>
-							<li><a href="">Giới thiệu</a></li>
+							<li><a href="{{route('intro')}}">Giới thiệu</a></li>
 						</ul>
 					</nav>
 				</div>

@@ -16,7 +16,7 @@
 		<!-- /w3l-medile-movies-grids -->
 			<div class="agileits-single-top">
 				<ol class="breadcrumb">
-				  <li><a href="index.html">Trang chủ</a></li>
+				  <li><a href="{{route('main')}}">Trang chủ</a></li>
 				  <li class="active">Phim</li>
 				</ol>
 			</div>
